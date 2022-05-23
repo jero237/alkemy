@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { CssBaseline, TextField, Avatar, Button, Link, Grid, Box, Typography, Container } from '@mui/material';
+import { useState, useEffect } from 'react';
+import { CssBaseline, TextField, Avatar, Button, Link, Box, Typography, Container } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -17,6 +17,14 @@ export default function SignIn() {
     const [form, setForm] = useState({ username: "", password: "" });
     const [error, setError] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
+
+    useEffect(() => {
+        axios.get(`${URL}/auth/user`)
+            .then(res => {
+                if (res.data) return navigate("/dashboard")
+            })
+            .catch(err => console.log(err))
+    }, [])
 
     const handleChange = (e) => {
         setError(false);
@@ -57,7 +65,7 @@ export default function SignIn() {
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
-                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }} >
+                    <Box component="form" sx={{ mt: 1 }} >
                         <TextField
                             margin="normal"
                             required
@@ -93,18 +101,10 @@ export default function SignIn() {
                         >
                             Sign In
                         </Button>
-                        <Grid container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Forgot password?
-                                </Link>
-                            </Grid>
-                            <Grid item>
-                                <Link href="/register" variant="body2">
-                                    {"Don't have an account? Sign Up"}
-                                </Link>
-                            </Grid>
-                        </Grid>
+
+                        <Link href="/register" variant="body2">
+                            {"Don't have an account? Sign Up"}
+                        </Link>
                     </Box>
                     <Button endIcon={<GitHubIcon />} color="inherit" href="https://github.com/jero237">jero237</Button>
                 </Box>
