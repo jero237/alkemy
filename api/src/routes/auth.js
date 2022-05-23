@@ -44,16 +44,17 @@ router.post('/register', (req, res, next) => {
             email: req.body.username
         }
     }).then(user => {
-        if (user) return res.status(401).json({ message: 'Username already exists' })
-        bcrypt.hash(req.body.password, 10, (err, hash) => {
+        if (user) return res.status(409).json({ message: 'Email already exists' })
+        bcrypt.hash(req.body.password.trim(), 10, (err, hash) => {
             if (err) return next(err)
             User.create({
-                email: req.body.username,
+                email: req.body.username.trim(),
                 password: hash,
-                name: req.body.name
+                name: req.body.name.trim()
             }).then(user => res.send(user))
-        });
-    });
+        })
+    })
+        .catch(err => console.log(err))
 })
 
 router.post('/logout', (req, res, next) => {
