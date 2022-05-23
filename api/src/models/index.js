@@ -34,4 +34,10 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+const { user, transaction } = sequelize.models;
+
+user.hasMany(transaction, { onDelete: 'cascade' });
+transaction.belongsTo(user);
+
+
 module.exports = db;
