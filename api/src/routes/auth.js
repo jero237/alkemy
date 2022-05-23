@@ -63,7 +63,7 @@ router.post('/logout', (req, res, next) => {
     });
 })
 
-router.get('/test', (req, res) => {
+router.get('/user', (req, res) => {
     res.send({ message: req.user })
 })
 
