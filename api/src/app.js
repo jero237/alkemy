@@ -7,7 +7,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 //Routes
 const auth = require('./routes/auth');
-const main = require('./routes/main');
+const transaction = require('./routes/transaction');
 const passport = require('passport');
 
 app.use(bodyParser.json());
@@ -28,6 +28,7 @@ app.use(cookieParser('n2nQxznYyPt4jCab'));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', auth)
+app.use('/auth', auth)
+app.use('/transaction', transaction)
 
 module.exports = app;
