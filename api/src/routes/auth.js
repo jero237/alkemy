@@ -41,21 +41,17 @@ router.post('/login', (req, res, next) => {
 router.post('/register', (req, res, next) => {
     User.findOne({
         where: {
-            email: req.body.email
+            email: req.body.username
         }
     }).then(user => {
         if (user) return res.status(401).json({ message: 'Username already exists' })
         bcrypt.hash(req.body.password, 10, (err, hash) => {
-            if (err) {
-                return next(err)
-            }
+            if (err) return next(err)
             User.create({
-                email: req.body.email,
+                email: req.body.username,
                 password: hash,
                 name: req.body.name
-            }).then(user => {
-                return res.send(user)
-            });
+            }).then(user => res.send(user))
         });
     });
 })
