@@ -1,0 +1,18 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "jero237",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.19.2",
+    "sequelize-cli": "^6.4.1"
+  }
+}
