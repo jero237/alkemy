@@ -75,8 +75,8 @@ export default function Register() {
                             name="username"
                             autoComplete="email"
                             onChange={handleChange}
-                            error={error && !form.username || !!errorMsg}
-                            helperText={error && !form.username && "Email is required" || errorMsg}
+                            error={(error && !form.username) || !!errorMsg}
+                            helperText={(error && !form.username && "Email is required") || errorMsg}
                             value={form.username}
                         />
                         <TextField

@@ -24,7 +24,7 @@ export default function SignIn() {
                 if (res.data) return navigate("/dashboard")
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [navigate])
 
     const handleChange = (e) => {
         setError(false);
@@ -76,7 +76,7 @@ export default function SignIn() {
                             value={form.username}
                             onChange={handleChange}
                             autoFocus
-                            error={error && !form.username || error && !!errorMsg}
+                            error={(error && !form.username) || (error && !!errorMsg)}
                             helperText={error && errorMsg}
                         />
                         <TextField
@@ -90,7 +90,7 @@ export default function SignIn() {
                             autoComplete="current-password"
                             value={form.password}
                             onChange={handleChange}
-                            error={error && !form.password || error && !!errorMsg}
+                            error={(error && !form.password) || (error && !!errorMsg)}
                             helperText={error && errorMsg}
                         />
                         <Button
