@@ -21,8 +21,9 @@ export default function Header({ balance }) {
                 justifyContent: 'space-around',
                 alignItems: 'center',
                 padding: '1rem',
+                flexWrap: 'wrap'
             }}>
-                <Typography variant="h6">Balance:</Typography>
+                <Typography variant="subtitle1">Balance:</Typography>
                 <Typography variant="h5">${balance}</Typography>
             </Paper>
         </Container>
