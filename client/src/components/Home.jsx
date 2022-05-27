@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react'
 import { Container } from '@mui/system'
 import Header from './Header'
 import TransactionTable from './TransactionTable'
 
 
 export default function Home({ transactions }) {
-
-
 
     return (
         <Container sx={{
@@ -20,7 +17,7 @@ export default function Home({ transactions }) {
                 if (b.type === "in") return a + b.amount
                 else return a - b.amount
             }, 0)} />
-            <TransactionTable transactions={transactions} />
+            <TransactionTable transactions={transactions} isHome />
         </Container>
     )
 }
