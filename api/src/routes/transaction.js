@@ -39,8 +39,7 @@ router.put('/', (req, res) => {
     Transaction.update({
         amount: req.body.amount,
         description: req.body.description,
-        date: req.body.date,
-        type: req.body.type
+        date: req.body.date
     }, {
         where: {
             id: req.body.id,
