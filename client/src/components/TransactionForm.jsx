@@ -41,7 +41,7 @@ function TransactionForm({ reloadTransactions, location }) {
                 console.log(res)
                 setLoading(false)
                 setForm({
-                    amount: null,
+                    amount: '',
                     description: '',
                     date: null,
                     type: "out"
