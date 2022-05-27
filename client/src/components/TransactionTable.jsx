@@ -48,7 +48,7 @@ export default function TransactionTable({ transactions, isHome, reloadTransacti
 
     const table = (type) => {
         return (
-            <TableContainer component={Paper} >
+            <TableContainer component={Paper} sx={{ marginBottom: matches ? "1rem" : "2rem" }} >
                 <Toolbar>
                     <Typography variant='h6'>{type === 'out' ? "Paid" : "Received"}</Typography>
                 </Toolbar>
@@ -145,7 +145,7 @@ export default function TransactionTable({ transactions, isHome, reloadTransacti
     )
 
     return (
-        <Container sx={{ display: "flex", gap: "1rem", flexWrap: matches && 'wrap' }} >
+        <Container sx={{ display: "flex", gap: !matches && "1rem", flexWrap: matches && 'wrap' }} >
             {table('out')}
             {table('in')}
         </Container>
