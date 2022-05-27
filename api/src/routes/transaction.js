@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    console.log(req.body)
     Transaction.create({
         userId: req.user.id,
         amount: req.body.amount,
