@@ -12,7 +12,7 @@ export default function ManageTransactions({ transactions, reloadTransactions })
             gap: '1rem'
         }}>
             <TransactionForm reloadTransactions={reloadTransactions} />
-            <TransactionTable transactions={transactions} />
+            <TransactionTable transactions={transactions} reloadTransactions={reloadTransactions} />
         </Container>
     )
 }
