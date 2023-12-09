@@ -1,5 +1,5 @@
 # alkemy
-Personal finance React APP made for Alkemy Campus
+Personal finance React APP made for Alkemy Campus admission.
 
 Download and run
 ```sh
